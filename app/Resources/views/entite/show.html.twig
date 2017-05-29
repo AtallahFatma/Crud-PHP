@@ -1,0 +1,40 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <h1>Entite</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entite.id }}</td>
+            </tr>
+            <tr>
+                <th>Att1</th>
+                <td>{{ entite.att1 }}</td>
+            </tr>
+            <tr>
+                <th>Att2</th>
+                <td>{{ entite.att2 }}</td>
+            </tr>
+            <tr>
+                <th>Att3</th>
+                <td>{{ entite.att3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('entite_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('entite_edit', { 'id': entite.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

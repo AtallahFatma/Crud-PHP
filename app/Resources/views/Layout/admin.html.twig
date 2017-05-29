@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale}}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('bundles/appfront/img/favicon.png') }}">
+
+    <title>BackOffice</title>
+
+    {% block stylesheets %}
+    <!-- Bootstrap core CSS -->
+      <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('bundles/app/css/bootstrap-reset.css') }}" rel="stylesheet">
+      <link href="{{ asset('bundles/app/css/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('bundles/app/css/style-responsive.css') }}" rel="stylesheet">
+      <link href="{{ asset('bundles/app/css/multi-select.css') }}" rel="stylesheet"/>
+      <link href="{{ asset('bundles/app/css/demo_table.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/app/js/jcrop/css/jquery.Jcrop.min.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/app/css/fancybox/fancybox.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/app/css/gallery.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/app/css/datepicker.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/app/css/datetimepicker.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/app/css/timepicker.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/app/css/select2.css') }}" rel="stylesheet">
+      <link href="{{ asset('bundles/app/css/style.css') }}" rel="stylesheet">
+   {% endblock %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{{ asset('bundles/appfront/js/libs/modernizr-2.6.2.min.js') }}"></script>
+      <script src="{{ asset('bundles/appfront/js/respond.min.js') }}"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <section id="container" class="">
+      <!--header start-->
+      <header class="header white-bg">
+
+
+        </header>
+      {#{% include "AppAdminBundle:Menu:main.html.twig" %}#}
+      <section id="main-content">
+          <section class="wrapper site-min-height">
+              {% for flashMessage in app.session.flashbag.get('error') %}
+                  <div class="alert alert-block alert-danger fade in">
+                      <button data-dismiss="alert" class="close close-sm" type="button">
+                          <i class="fa fa-times"></i>
+                      </button>
+                      {{ flashMessage }}
+                  </div>
+              {% endfor %}
+              {% for flashMessage in app.session.flashbag.get('success') %}
+                  <div class="alert alert-success fade in">
+                      <button data-dismiss="alert" class="close close-sm" type="button">
+                          <i class="fa fa-times"></i>
+                      </button>
+                      {{ flashMessage }}
+                  </div>
+              {% endfor %}
+              {% for flashMessage in app.session.flashbag.get('notice') %}
+                  <div class="alert alert-info fade in">
+                      <button data-dismiss="alert" class="close close-sm" type="button">
+                          <i class="fa fa-times"></i>
+                      </button>
+                      {{ flashMessage }}
+                  </div>
+              {% endfor %}
+
+            {% block body %}
+            {% endblock %}
+          </section>
+      </section>
+      <footer class="site-footer">
+          <div class="text-center">
+              2014 &copy; BackOffice
+              <a href="#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+{% block javascripts %}
+
+
+
+    <!-- --- JQUERY --- -->
+    <script src="{{ asset('bundles/app/js/jquery-1.8.3.min.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/jquery-ui-1.9.2.custom.min.js') }}" ></script>
+
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ url('bazinga_jstranslation_js') }}"></script>
+
+    <!-- --- JQUERY PLUGINS --- -->
+    <script src="{{ asset('bundles/app/js/jquery.nicescroll.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/jquery.scrollTo.min.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/jquery.customSelect.min.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/jquery-multi-select/js/jquery.multi-select.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/jquery-multi-select/js/jquery.quicksearch.js') }}"></script>
+
+    <!-- --- BOOTSTRAP --- -->
+    <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-datepicker/bootstrap-datepicker.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-datepicker/locales/bootstrap-datepicker.locales.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-timepicker.js') }}" ></script>
+
+    <!-- --- WYSIYYG --- -->
+    <script src="{{ asset('bundles/app/js/tinymce/tinymce.min.js') }}"></script>
+
+    <!-- --- DATATABLE --- -->
+    <script src="{{ asset('bundles/app/js/jquery.dataTables.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/DT_bootstrap.js') }}" ></script>
+
+    <!-- --- OTHER --- -->
+    <script src="{{ asset('bundles/app/js/count.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/common-scripts.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/spinner.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/jcrop/js/jquery.Jcrop.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/jquery.fancybox.pack.js') }}"></script>
+    <script class="include" type="text/javascript" src="{{ asset('bundles/app/js/jquery.dcjqaccordion.2.7.js') }}" ></script>
+    <script src="{{ asset('bundles/app/js/modernizr.custom.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/select2.min.js') }}" ></script>
+
+
+    <script src="{{ asset('bundles/app/js/scripts.js') }}" ></script>
+
+{% endblock %}
+  </body>
+</html>

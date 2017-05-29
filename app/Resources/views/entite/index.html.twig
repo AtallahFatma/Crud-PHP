@@ -1,0 +1,76 @@
+
+
+
+
+    {% extends 'admin.html.twig' %}
+
+
+    {% block body %}
+
+<section class="site-min-height">
+    <!-- page start-->
+    <section class="panel">
+        <header class="panel-heading">
+            Entites list
+        </header>
+        <div class="panel-body">
+            <div class="adv-table editable-table">
+                <div class="clearfix">
+                    <a href="{{ path('entite_new') }}" >
+                        <div class="btn-group">
+
+                                <button  class="btn green">
+                                    Create a new entite  <i class="fa fa-plus"></i>
+                                </button>
+
+                        </div>
+                    </a>                </div>
+                <br>
+                <div class="space15"></div>
+
+    <table class="display table table-striped table-hover table-bordered">
+        <thead>
+
+        <tr>
+                <th>Id</th>
+                <th>Att1</th>
+                <th>Att2</th>
+                <th>Att3</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entite in entites %}
+        <tr>
+                    <td><a href="{{ path('entite_show', { 'id': entite.id }) }}">{{ entite.id }}</a></td>
+                    <td>{{ entite.att1 }}</td>
+                    <td>{{ entite.att2 }}</td>
+                    <td>{{ entite.att3 }}</td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="{{ path('entite_show', { 'id': entite.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('entite_edit', { 'id': entite.id }) }}">edit</a>
+                                </li>
+                        </ul>
+                    </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- page end-->
+</section>
+
+    <ul>
+            <li>
+                <a href="{{ path('entite_new') }}">Create a new entite</a>
+            </li>
+        </ul>
+    {% endblock %}
